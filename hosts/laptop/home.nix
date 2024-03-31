@@ -92,7 +92,7 @@
 
     shellAliases = {
       ls = "eza -la --group-directories-first";
-      update = "sudo nixos-rebuild switch --flake ~/.dotfiles/#default";
+      update = "sudo nixos-rebuild switch --flake ~/.dotfiles/";
       nixconfig = "nvim ~/.dotfiles";
     };
 
