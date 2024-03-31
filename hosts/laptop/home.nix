@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+  ./../../modules/zsh.nix
+  ./../../modules/file-manager/nnn.nix
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "bitteneite";
@@ -23,7 +27,6 @@
     eza
     zellij
 
-    (nnn.override { withNerdIcons = true; })
     # Terminal Tools & Helpers
     tlrc
     
@@ -85,23 +88,6 @@
     font.size = 14;
   };
 
-  # Zsh: Shell
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-
-    shellAliases = {
-      ls = "eza -la --group-directories-first";
-      update = "sudo nixos-rebuild switch --flake ~/.dotfiles/";
-      nixconfig = "nvim ~/.dotfiles";
-    };
-
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" ];
-      theme = "robbyrussell";
-    };
-  };
   #
   # xdg.configFile."lf/icons".source = ./icons;
   #
