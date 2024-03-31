@@ -19,6 +19,13 @@
           inputs.home-manager.nixosModules.default
         ];
       };
+	  wsl2 = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/wsl2/configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
     };
   };
 }
