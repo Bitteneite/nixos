@@ -2,7 +2,6 @@
 
 {
   imports = [
-  ./../../modules/zsh.nix
   ./../../modules/file-manager/nnn.nix
   ];
   

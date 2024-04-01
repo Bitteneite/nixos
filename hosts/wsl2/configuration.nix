@@ -16,6 +16,7 @@
     [ # include NixOS-WSL modules
 	  <nixos-wsl/modules>
       inputs.home-manager.nixosModules.default
+	  ./../../modules/zsh.nix
     ];
 
   # List packages installed in system profile. To search, run:
