@@ -4,7 +4,6 @@
   # Zsh: Shell
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
 
     shellAliases = {
       ls = "eza -la --group-directories-first";
@@ -17,6 +16,11 @@
       plugins = [ "git" ];
       theme = "robbyrussell";
     };
+  
+      autosuggestions.enable = true;
+	  syntaxHighlighting.enable = true;
+	  enableCompletion = true;
+  
   };
   
   users.defaultUserShell = pkgs.zsh;
