@@ -2,7 +2,7 @@
 
 {
   imports = [
-  ./../../modules/file-manager/nnn.nix
+  ./../../modules/file-manager/xplr.nix
   ];
   
   # Home Manager needs a bit of information about you and the paths it should

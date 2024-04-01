@@ -2,7 +2,7 @@
 
 {
   imports = [
-  ./../../modules/file-manager/nnn.nix
+  ./../../modules/file-manager/xplr.nix
   ];
   
   # User info
