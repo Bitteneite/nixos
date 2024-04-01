@@ -9,15 +9,15 @@
 
 {
 
-	wsl.enable = true;
-	wsl.defaultUser = "nixos";
-
   imports =
     [ # include NixOS-WSL modules
 	  <nixos-wsl/modules>
       inputs.home-manager.nixosModules.default
 	  ./../../modules/zsh.nix
     ];
+
+  wsl.enable = true;
+  wsl.defaultUser = "nixos";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
