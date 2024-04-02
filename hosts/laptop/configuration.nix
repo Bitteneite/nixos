@@ -44,8 +44,8 @@
   };
 
   # Enable automatic login for the user.
-  # services.xserver.displayManager.autoLogin.enable = true;
-  # services.xserver.displayManager.autoLogin.user = "bitteneite";
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "bitteneite";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -81,6 +81,7 @@
       "bitteneite" = import ./home.nix;
     };
   };
+  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
