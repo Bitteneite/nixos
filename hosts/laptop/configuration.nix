@@ -9,6 +9,8 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
+	  ./../../modules/desktop-environment/kde.nix
+	  ./../../modules/pipewire.nix
 	  ./../../modules/zsh.nix
     ];
 
@@ -27,63 +29,6 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
-  # # GNOME DE
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  # # Excluding GNOME packages
-  environment.gnome.excludePackages = (with pkgs; [
-    #gnome-photos
-    gnome-tour        # Welcome Help
-    gedit             # Text Editor
-  ]) ++ (with pkgs.gnome; [
-    baobab            # Disk Usage Analyzer
-    cheese            # Photo Booth
-    totem             # Video Player
-    simple-scan       # Document Scanner
-    gnome-music
-    # gnome-console
-    # gnome-terminal
-    epiphany          # Web Browser
-    geary             # Email Reader
-    evince            # Document Viewer
-    gnome-characters
-    yelp              # Help
-    file-roller       # Archive/Zip
-    seahorse          # Password Manager
-    tali              # Poker Game
-    iagno             # Go Game
-    hitori            # Sodoku
-    atomix            # Puzzle
-
-    # Self Explanatory Stuff
-    gnome-calendar gnome-clocks gnome-contacts gnome-font-viewer gnome-logs gnome-maps gnome-weather gnome-disk-utility
-  ]);
-  
-  # Removing bloat
-  services.xserver.excludePackages = [
-    pkgs.xterm        # X11 Terminal Emulator
-  ];
-  programs.nano.enable = false; # Removing Nano (Use Neovim!)
-
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
