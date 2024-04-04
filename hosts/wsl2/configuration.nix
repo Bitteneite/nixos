@@ -12,7 +12,8 @@
   imports =
     [ # include NixOS-WSL modules
 	  <nixos-wsl/modules>
-      inputs.home-manager.nixosModules.default
+	  inputs.home-manager.nixosModules.default
+	  ./../../modules/text-editor/neovim.nix
 	  ./../../modules/zsh.nix
     ];
 
@@ -31,11 +32,6 @@
     gnumake
     ripgrep
   ];
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };

@@ -9,9 +9,10 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
-	  ./../../modules/desktop-environment/kde.nix
-	  ./../../modules/pipewire.nix
-	  ./../../modules/zsh.nix
+      ./../../modules/text-editor/neovim.nix
+      ./../../modules/desktop-environment/kde.nix
+      ./../../modules/pipewire.nix
+      ./../../modules/zsh.nix
     ];
 
   # Bootloader.
@@ -64,11 +65,6 @@
     gnumake
     ripgrep
   ];
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
 
   # Set default applications
   environment.variables = {
